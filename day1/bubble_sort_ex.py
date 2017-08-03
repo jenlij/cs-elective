@@ -42,3 +42,15 @@ for array in input_arrays:
     print(" Input: " + str(array))
     sorted_array = bubble_sort(array)
     print("Output: " + str(sorted_array))
+
+# instructor solution
+def bubs(arr):
+    swapped = True
+    while (swapped):
+        swapped = False
+        for i in range(len(arr)-1):
+            if arr[i] > arr[i+1]:
+                arr[i], arr[i+1] = arr[i+1], arr[i]
+                swapped = True
+    return arr
+print bubs([5,4,3,2,1])
