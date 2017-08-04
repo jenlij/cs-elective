@@ -70,10 +70,15 @@ def sum_div_by(num, max):
     return sum     
 
 def run_me():
-    MAX = 50000000
+    MAX = 1000
     sum = sum_div_by(3, MAX) + sum_div_by(5, MAX) - sum_div_by(15, MAX)
     return sum
-# print run_me()    
+
+start_time = datetime.datetime.now()
+print run_me()
+end_time = datetime.datetime.now()
+duration = end_time - start_time
+print("This program ran in " + str(duration))   
 
 # optimal solution trianglular numbers
 # (1+2+3+4...) = n(n+1)/2
@@ -85,9 +90,8 @@ def opt(num, max):
     sum = num * (p * (p + 1)) / 2
     return int(sum)
 
-
 def run_me2():
-    MAX = 50000000
+    MAX = 1000
     sum = opt(3, MAX) + opt(5, MAX) - opt(15, MAX)
     return sum
 
