@@ -1,0 +1,7 @@
+print '1', range(6)
+print '2', range(1, 6)
+print '3', range(0, 7, 2)
+print '4', range(1000, 4001, 1000)
+print '5', range(4000, 0, -1000)
+print '6', range(12, -7, -3)
+print '7', range(10, 3, -3)
