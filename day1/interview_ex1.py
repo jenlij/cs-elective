@@ -86,7 +86,7 @@ print("This program ran in " + str(duration))
 # 3n(n+1)/2
 # constant time
 def opt(num, max):
-    p = int(max/num)
+    p = int((max - 1) / num)
     sum = num * (p * (p + 1)) / 2
     return int(sum)
 
