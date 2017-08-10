@@ -44,10 +44,11 @@ def factorial(n):
 
 
 def reverse_array(array, i):
-    if i == (len(array) /2):
+    if array == None or i >= (len(array) /2):
         return array
     array[i], array[len(array)-1-i] = array[len(array)-1-i], array[i]
     return reverse_array(array, i+1)
 
 print reverse_array([2,4,3,6,5,7], 0)
+print reverse_array(None, 0)
     
