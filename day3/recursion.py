@@ -33,4 +33,21 @@ def stars(n, max):
     stars(n + 1, max - 1)
 
 
-stars(1, 8)    
+# stars(1, 8)    
+
+def factorial(n):
+    if n == 1 or n == 0:
+        return 1
+    return n * factorial(n-1)
+
+# print factorial(6)    
+
+
+def reverse_array(array, i):
+    if i == (len(array) /2):
+        return array
+    array[i], array[len(array)-1-i] = array[len(array)-1-i], array[i]
+    return reverse_array(array, i+1)
+
+print reverse_array([2,4,3,6,5,7], 0)
+    
