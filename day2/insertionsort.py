@@ -19,7 +19,7 @@ def insertion_sort(my_array):
     for i in range(len(my_array)):
         temp = my_array[i]
         j = i
-        while((j > 0) and (my_array[j-1] > temp)): #< temp for reverse
+        while((j > 0) and (my_array[j-1] > temp)): 
             array[j] = array[j-1] 
             j -= 1
         array[j] = temp    
@@ -41,3 +41,18 @@ for array in input_arrays:
     print("Output: " + str(sorted_array))
 
 # O(n^2)     
+
+# reverse array
+# O(n)
+def reverse(my_array):
+    j = len(my_array) - 1
+    for i in range(0, len(my_array) /  2):
+        my_array[i], my_array[j] = my_array[j], my_array[i]
+        j = j - 1
+    return my_array
+
+for array in input_arrays:
+    print("")
+    print(" Input: " + str(array))
+    sorted_array = reverse(array)
+    print("Output: " + str(sorted_array))
