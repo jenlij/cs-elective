@@ -9,7 +9,7 @@
 def linear_search_bad_version(array, target):
     for i in array:
         if i == target:
-            return array.index(i)
+            return array.index(i) #this makes O(2n)
     return -1
 
 def linear_search(array, target):
@@ -19,7 +19,7 @@ def linear_search(array, target):
     return -1
 
 def linear_search_recursive(array, target, i):
-    if i >= len(array):
+    if i == len(array):
         return -1 
     if array[i] == target:
         return i
