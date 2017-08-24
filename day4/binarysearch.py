@@ -5,12 +5,12 @@
 # https://www.youtube.com/watch?v=D5SrAga1pno
 # http://interactivepython.org/runestone/static/pythonds/SortSearch/TheBinarySearch.html
 #
-import math
+
 def binary_search(array, target):
     left = 0
     right = len(array)-1
-    mid = left + (right - left)/2 
-    while left < right:
+    # mid = left + (right - left)/2 
+    while left <= right:
         mid = left + (right - left)/2 
         if array[mid] == target:
             return mid
@@ -25,7 +25,9 @@ data = [
     [[1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 3],
     [[1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 2],
     [[1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 8],
-    [[1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 11]
+    [[1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 11],
+    [[1, 2, 3, 4, 5], 4],
+    [[1, 2, 3, 4, 5], 5]
 ]
 
 for d in data:
