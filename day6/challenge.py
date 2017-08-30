@@ -10,34 +10,11 @@
 
 # In each test case, the lists x and y will always contain n non-unique integers where n is at least 1 but never more than 99, and one of the lists will contain an additional unique integer which should be returned by the function.  The same n non-unique integers will be present on both lists, but they might appear in a different order, like in the examples above. Commander Lambda likes to keep her numbers short, so every prisoner ID will be between -1000 and 1000.
 
-# Languages
-# =========
-
-# To provide a Python solution, edit solution.py
-# To provide a Java solution, edit solution.java
-
-# Test cases
-# ==========
-
-# Inputs:
-#     (int list) x = [13, 5, 6, 2, 5]
-#     (int list) y = [5, 2, 5, 13]
-# Output:
-#     (int) 6
-
-# Inputs:
-#     (int list) x = [14, 27, 1, 4, 2, 50, 3, 1]
-#     (int list) y = [2, 4, -4, 3, 1, 1, 14, 27, 50]
-# Output:
-#     (int) -4
-
-# Use verify [file] to test your solution and see how it does. When you are finished editing your code, use submit [file] to submit your answer. If your solution passes the test cases, it will be removed from your home folder.
 
 def answer(x, y):
     #write a function that compates the lists and returns the additional id
     dict = {}
     new_array = x + y
-    print new_array
     for i in new_array:
         if i in dict:
             dict[i] = dict[i] + 1
@@ -47,28 +24,18 @@ def answer(x, y):
         if dict[key] == 0:
             return key
 
+def prison_dogers_main():
+    x = [13, 5, 6, 2, 5]
+    y = [5, 2, 5, 13]
+    print answer(x, y) #6
 
-x = [13, 5, 6, 2, 5]
-y = [5, 2, 5, 13]
-print answer(x, y)
+    x1 = [14, 27, 1, 4, 2, 50, 3, 1]
+    y1 = [2, 4, -4, 3, 1, 1, 14, 27, 50]
+    print answer(x1, y1) #-1
 
-x1 = [14, 27, 1, 4, 2, 50, 3, 1]
-y1 = [2, 4, -4, 3, 1, 1, 14, 27, 50]
-print answer(x1, y1)
 
-#Test cases
-# ==========
-
-# Inputs:
-
-# Output:
-# (int) 6
-
-# Inputs:
-# (int list) x = [14, 27, 1, 4, 2, 50, 3, 1]
-# (int list) y = [2, 4, -4, 3, 1, 1, 14, 27, 50]
-# Output:
-# (int) -4           
+#prison_dogers_main()
+       
 
 
 ##CHALLENGE 2####
@@ -92,12 +59,6 @@ print answer(x1, y1)
 
 # To keep things interesting, Commander Lambda varies the sizes of the Lucky LAMB payouts: you can expect total_lambs to always be between 10 and 1 billion (10 ^ 9).
 
-# Languages
-# =========
-
-# To provide a Python solution, edit solution.py
-# To provide a Java solution, edit solution.java
-
 # Test cases
 # ==========
 
@@ -112,3 +73,79 @@ print answer(x1, y1)
 #     (int) 3
 
 # Use verify [file] to test your solution and see how it does. When you are finished editing your code, use submit [file] to submit your answer. If your solution passes the test cases, it will be removed from your home folder.
+
+def answer(total_lambs):
+    #Rule 1: 1 lamb per junior henchman. will always be 1 junior
+    #Rule 2: 1 level above, max 2times lambs of level below
+    #Rule 3: 1 level below, sum no greater than 1 level above
+    #Rule 4: everyone gets paid, can add more people to team if necessary
+    #lambs must be ints
+    #find difference between min and max num of henchmen who can share the lambs
+    summation = 0
+    i = 0
+    # while total_lambs - summation > 2**i:
+    #     summation = summation + 2**i
+    #     i = i + 1
+    # summation2 = 1
+    # j = 1
+    # while total_lambs > summation2:
+    #     summation2 = summation2 + 2**j
+    #     j = j + 1
+    # return abs(i - j)  
+    while total_lambs - summation > 2**i:
+        summation = summation + 2** i
+        i = i + 1
+    fib = 1
+    next_fib = 1
+    summation2 = 0
+    j = 0
+    while total_lambs - summation2 > next_fib:
+        summation2 = summation2 + fib
+        fib, next_fib = next_fib, next_fib + fib
+        j = j + 1
+    return abs(i-j)
+
+
+def lambs_main():
+    print answer(10)  #1 
+    print answer(143)  #3
+
+lambs_main()
+
+1
+2
+4
+
+1
+1
+2
+3
+
+
+
+1
+1
+2
+3
+5
+8
+13
+21
+34
+55
+
+#143
+
+
+1
+2
+4
+8
+16
+32
+64
+
+
+
+
+
