@@ -45,7 +45,7 @@ class Node:
 n1 = Node(5)
 n2 = Node(4)
 n1.next = n2
-print(n1.next.value)        
+# print(n1.next.value)        
 
 class MyLinkedList:
     def __init__(self):
@@ -53,14 +53,39 @@ class MyLinkedList:
         self.tail = None
     
     def append(self, value): 
+        new_node = Node(value)
         #if head and tail or none, 
         # if true: assign head and tail to new value
         # if false: assign new node to current tail's next property and reassign current tail to new node
-        
-        pass
+        if self.head == None and self.tail == None:
+            self.head, self.tail = new_node, new_node
+        else:
+            self.tail.next, self.tail = new_node, new_node
     
     def delete(self, value):
-        pass
+        # find the value
+        # if value exists, assign the previous node's next property to the next node
+        #else return
+        current_node = self.head
+        while current_node.next != None and current_node.next.value != value:
+            current_node = current_node.next
+        if current_node.next == None:
+            return
+
+        node_to_remove = current_node.next
+        current_node.next = node_to_remove.next
+        node_to_remove.next = None #removes pointer   
+
+        if node_to_remove == self.tail:
+            self.tail = current_node
+
     
-    def exists(self, value):
-        pass  
+
+linked_list = MyLinkedList()
+linked_list.append(1)
+#print linked_list.tail.value
+linked_list.append(5)
+#print linked_list.tail.value
+linked_list.append(7)
+
+linked_list.delete(5)
