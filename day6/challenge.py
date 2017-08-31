@@ -14,7 +14,7 @@
 def answer(x, y):
     #write a function that compates the lists and returns the additional id
     dict = {}
-    new_array = x + y
+    # new_array = x + y this 
     for i in new_array:
         if i in dict:
             dict[i] = dict[i] + 1
@@ -33,8 +33,11 @@ def prison_dogers_main():
     y1 = [2, 4, -4, 3, 1, 1, 14, 27, 50]
     print answer(x1, y1) #-1
 
+    x2 = [13, 5, 6, 2, 5, 6]
+    y2 = [5, 2, 5, 13, 6]   
+    print answer(x2, y2)
 
-#prison_dogers_main()
+prison_dogers_main()
        
 
 
