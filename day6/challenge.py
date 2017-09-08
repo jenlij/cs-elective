@@ -11,10 +11,10 @@
 # In each test case, the lists x and y will always contain n non-unique integers where n is at least 1 but never more than 99, and one of the lists will contain an additional unique integer which should be returned by the function.  The same n non-unique integers will be present on both lists, but they might appear in a different order, like in the examples above. Commander Lambda likes to keep her numbers short, so every prisoner ID will be between -1000 and 1000.
 
 
-def answer(x, y):
+def answer1(x, y):
     #write a function that compates the lists and returns the additional id
     dict = {}
-    # new_array = x + y this 
+    new_array = x + y
     for i in new_array:
         if i in dict:
             dict[i] = dict[i] + 1
@@ -24,18 +24,41 @@ def answer(x, y):
         if dict[key] == 0:
             return key
 
+
+def answer2(x,y):
+    dict = {}
+    i = 0
+    j = 0
+    while i < len(x) or j < len(y):
+        if i < len(x):
+            if x[i] in dict:
+                dict[x[i]] = dict[x[i]] + 1
+            else:
+                dict[x[i]] = 1   
+            i += 1    
+        elif j < len(y):
+            if y[j] in dict:
+                dict[y[j]] = dict[y[j]] + 1
+            else:
+                dict[y[j]] = 1 
+            j += 1    
+
+    for key in dict:
+        if dict[key] % 2 != 0:
+            return key
+
 def prison_dogers_main():
     x = [13, 5, 6, 2, 5]
     y = [5, 2, 5, 13]
-    print answer(x, y) #6
+    print answer2(x, y) #6
 
     x1 = [14, 27, 1, 4, 2, 50, 3, 1]
     y1 = [2, 4, -4, 3, 1, 1, 14, 27, 50]
-    print answer(x1, y1) #-1
+    print answer2(x1, y1) #-4
 
     x2 = [13, 5, 6, 2, 5, 6]
-    y2 = [5, 2, 5, 13, 6]   
-    print answer(x2, y2)
+    y2 = [5, 2, 5, 13, 6] #6  
+    print answer2(x2, y2)
 
 prison_dogers_main()
        
